@@ -7,8 +7,9 @@ class Author extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      authorFirst: '',
-      authorLast: ''
+      authorFirst: reduxState.authorFirst,
+      authorLast: reduxState.authorLast
+      
     };
   }
 
@@ -26,12 +27,13 @@ class Author extends Component {
   saveChanges() {
     store.dispatch({
       type: UPDATE_AUTHOR_FIRST,
-      pyload: this.state.authorFirst
+      payload: this.state.authorFirst
     });
     store.dispatch({
       type: UPDATE_AUTHOR_LAST,
       payload: this.state.authorLast
     });
+    
   }
   render() {
     return (
